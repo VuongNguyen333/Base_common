@@ -15,8 +15,10 @@ public class LanguageConfig {
   @Bean
   public MessageSource messageSource() {
     ResourceBundleMessageSource messageSource = new ResourceBundleMessageSource();
-    messageSource.setBasenames("i18n/messages");
+    // Ưu tiên service chính (i18n/messages), nếu không có thì fallback về common
+    messageSource.setBasenames("i18n/messages", "i18n/messages_common");
     messageSource.setDefaultEncoding("UTF-8");
+    messageSource.setFallbackToSystemLocale(false);
     return messageSource;
   }
 
