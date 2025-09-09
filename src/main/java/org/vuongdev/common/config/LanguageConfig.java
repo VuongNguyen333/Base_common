@@ -18,7 +18,6 @@ public class LanguageConfig {
     // Ưu tiên service chính (i18n/messages), nếu không có thì fallback về common
     messageSource.setBasenames("i18n/messages", "i18n/messages_common");
     messageSource.setDefaultEncoding("UTF-8");
-    messageSource.setFallbackToSystemLocale(false);
     return messageSource;
   }
 
