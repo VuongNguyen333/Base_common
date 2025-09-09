@@ -3,6 +3,7 @@ package org.vuongdev.common.exception;
 import com.fasterxml.jackson.databind.exc.InvalidFormatException;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.http.converter.HttpMessageNotReadableException;
@@ -18,9 +19,9 @@ import java.util.Arrays;
 
 @ControllerAdvice
 @Slf4j
-@RequiredArgsConstructor
 public class ApiExceptionHandler {
-  private final LocalizationUtils localizationUtils;
+  @Autowired
+  private LocalizationUtils localizationUtils;
 
   @ExceptionHandler({AppException.class})
   protected ResponseEntity<Response<Object>> handleAppException(AppException appException) {

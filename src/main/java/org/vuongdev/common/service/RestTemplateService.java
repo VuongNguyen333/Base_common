@@ -3,6 +3,7 @@ package org.vuongdev.common.service;
 import com.fasterxml.jackson.core.type.TypeReference;
 import lombok.RequiredArgsConstructor;
 import lombok.SneakyThrows;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.core.ParameterizedTypeReference;
 import org.springframework.core.io.ByteArrayResource;
 import org.springframework.http.*;
@@ -18,8 +19,8 @@ import org.vuongdev.common.utils.ObjectMapperUtils;
 import java.util.Objects;
 
 @Service
-@RequiredArgsConstructor
 public class RestTemplateService {
+  @Autowired
   private RestTemplate restTemplate;
 
   /**

@@ -20,7 +20,6 @@ import java.util.List;
 import java.util.stream.Collectors;
 
 @Component
-@RequiredArgsConstructor
 public class JwtTokenUtils {
 
   public static String getToken(HttpServletRequest request) {

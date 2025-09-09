@@ -2,6 +2,7 @@ package org.vuongdev.common.utils;
 
 import jakarta.servlet.http.HttpServletRequest;
 import lombok.RequiredArgsConstructor;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.MessageSource;
 import org.springframework.stereotype.Component;
 import org.springframework.web.servlet.LocaleResolver;
@@ -9,10 +10,11 @@ import org.springframework.web.servlet.LocaleResolver;
 import java.util.Locale;
 
 @Component
-@RequiredArgsConstructor
 public class LocalizationUtils {
-  private final MessageSource messageSource;
-  private final LocaleResolver localeResolver;
+  @Autowired
+  private MessageSource messageSource;
+  @Autowired
+  private LocaleResolver localeResolver;
 
   public String getLocalizedMessage(String messageKey, Object... params) {
     String EXCEPTION_MESSAGE = "Có lỗi xảy ra, xin vui lòng thử lại sau";
